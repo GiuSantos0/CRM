@@ -1,0 +1,5 @@
+body{
+    background: #000 url('../../assets/img/walppaper2.png') no-repeat;
+    background-size: cover;
+    -webkit-font-smoothing: antialiased !important;
+  }
