@@ -1,13 +1,17 @@
 import React from 'react';
 import './styles.css';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
+import Container from '@material-ui/core/Container';
+import CardContent from '@material-ui/core/CardContent';
 
+import logo from '../../assets/img/dashplanbygfai.png';
 
 const useStyles = makeStyles(theme => ({
   card: {
-    maxWidth: 345,
+    maxWidth: 500,
+    backgroundColor: '#ffffff6b'
   },
 
 }));
@@ -15,20 +19,26 @@ const useStyles = makeStyles(theme => ({
 
 export default function Login() {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
-
+ 
     return(
-      <div>
-      <Card className={classes.card}>
+      <React.Fragment>
+        <CssBaseline>
+            <Container maxWidth="xs">
+              <div className="content">
+                <Card className={classes.card}>
+                  <form action="">
+                    <CardContent>
+                      <img src={logo} alt="logo dashplan" className="logo"/>krai hein
 
-        ola mundo
-      </Card>
+                    </CardContent>
 
-      </div>
+
+                  </form>
+                </Card>
+              </div>
+            </Container>
+        </CssBaseline>
+      </React.Fragment>
     ) 
   }
 

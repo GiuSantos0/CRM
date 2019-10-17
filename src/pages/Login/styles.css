@@ -1,5 +1,27 @@
 body{
-    background: #000 url('../../assets/img/walppaper2.png') no-repeat;
+    background: #000 url('../../assets/img/wallpaper.png') no-repeat;
     background-size: cover;
     -webkit-font-smoothing: antialiased !important;
-  }
+}
+
+html{
+  border-bottom: 50px solid #4e4e4e;
+
+}
+.content {
+  width: 100%;
+  margin-top: 96px;
+  border-radius: 4px;
+  padding: 30px 20px;
+}
+
+.content form {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  width: 100%;
+  background-size: cover;
+  height: 100%;
+}
