@@ -1,13 +1,10 @@
 body{
-    background: #000 url('../../assets/img/wallpaper.png') no-repeat;
+    background: #000 url('../../assets/img/walppaper3.png') no-repeat;
     background-size: cover;
     -webkit-font-smoothing: antialiased !important;
+    background-position: 81% 1%;
 }
 
-html{
-  border-bottom: 50px solid #4e4e4e;
-
-}
 .content {
   width: 100%;
   margin-top: 96px;
@@ -24,4 +21,43 @@ html{
   width: 100%;
   background-size: cover;
   height: 100%;
+}
+
+.Input {
+  color:#4e4e4e;
+  width: 100%;
+}
+
+.Input:focus {
+  color:#f8b100;
+}
+@media screen and (max-width:480px){
+   body{
+      background: #000 url('../../assets/img/wallpaper.png') no-repeat;
+      background-position: 81% 11%;
+      background-size: 322% !important;
+      position: relative;
+      display: flex;
+   }
+}
+
+@media screen and (min-width:1400px){
+  body{
+    background-position: 81% 11%;
+
+  }
+}
+
+@media screen and (min-height:720px){
+  body{
+    background-position: 81% 11%;
+    background-size: 122%;
+  }
+
+  .content {
+    width: 100%;
+    margin-top: 156px;
+    border-radius: 4px;
+    padding: 30px 20px;
+  }
 }
