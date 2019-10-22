@@ -1,9 +1,3 @@
-body{
-    background: #000 url('../../assets/img/walppaper3.png') no-repeat;
-    background-size: cover;
-    -webkit-font-smoothing: antialiased !important;
-    background-position: 81% 1%;
-}
 
 .content {
   width: 100%;
@@ -34,8 +28,8 @@ body{
 @media screen and (max-width:480px){
    body{
       background: #000 url('../../assets/img/wallpaper.png') no-repeat;
-      background-position: 81% 11%;
-      background-size: 322% !important;
+      background-position: 81% 22% !important;
+      background-size: 410% !important;
       position: relative;
       display: flex;
    }

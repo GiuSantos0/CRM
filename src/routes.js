@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-import { isAuthenticated } from './auth';
-
+import { isAuthenticated } from './services/auth';
 import Login from './pages/Login';
+import DashboardPlanner from './pages/Planejadores/DashboardPlanner';
 
-const PrivateRoute = ({ component: Component, ... rest}) => (
-    <Route {... rest} render={props => (
+
+const PrivateRoute = ({ component: Component, ...rest }) => (
+    <Route {...rest} render={props => (
         isAuthenticated()? (
             <Component { ... props}/>
         ) : (
@@ -19,7 +20,8 @@ export default function Routes() {
         <BrowserRouter>
             <Switch>
                 <Route exact path="/" component={Login}/>
-                {/* <PrivateRoute path="/DashPlanner" component={DashboardPlanner}/> */}
+                <PrivateRoute path="/DashPlanner" component={DashboardPlanner}/>
+                <Route path="*" component={() => <h1>Page not found</h1>} />
             </Switch>
         </BrowserRouter>
     );

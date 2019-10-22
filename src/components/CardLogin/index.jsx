@@ -16,7 +16,7 @@ function CardLogin(props){
                     {props.input1}
                     {props.input2}
 
-                    <ButtonLarge size='large'>
+                    <ButtonLarge size='large' type="submit">
                         {props.valueButton}
                     </ButtonLarge>
                     <div>

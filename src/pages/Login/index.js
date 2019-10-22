@@ -1,49 +1,18 @@
-import React from 'react';
+import React , { useState }  from 'react';
 import './styles.css';
-import styled from 'styled-components';
-import { TextField , Container , CssBaseline , FormControl , makeStyles} from '@material-ui/core';
+import { FormControl, makeStyles, Grid, Container} from '@material-ui/core';
 import CardLogin from '../../components/CardLogin';
-
-export const StyledTextField = styled( TextField )`
-  .MuiFormLabel-root.Mui-focused {
-    color: #f8b100;
-    font-weight: 900;
-  }
-
-
-    .MuiInputBase-root{
-      border-bottom: 2px solid grey;
-      color: #f8b100;
-    }
-
-    .MuiInput-underline:after {
-      left: 0;
-      right: 0;
-      bottom: -2px;
-      content: "";
-      position: absolute;
-      transform: scaleX(0);
-      transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-      border-bottom: 2px solid #f8b100;
-      pointer-events: none;
-    }
-
-    .MuiInput-underline:before {
-      left: 0;
-      right: 0;
-      bottom: 0;
-      content: "";
-      position: absolute;
-      transform: scaleX(0);
-      transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-      border-bottom: 2px solid #f8b100;
-      pointer-events: none;
-    }
-  
-  
-`;
+import Body from '../../components/Body';
+import { StyledTextField } from '../../components/TextField';
 
 const useStyles = makeStyles(theme => ({
+  background: {
+    background: "#000 url('https://dashplan.com.br/img/wallpaper/walppaper3.png') no-repeat",
+    backgroundPosition: '81% 11%',
+    backgroundSize: '322% !important',
+    width: '100%',
+    height: '100%',
+  },
   container: {
     display: 'flex',
     flexWrap: 'wrap',
@@ -54,39 +23,73 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
   },
   formControl: {
-    width:'100%'
+    width:'100%',
   },
+
 }));
 
-export default function Login() { 
+export default function Login({ history }) { 
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    console.log(email, senha);
+
+    history.push('/DashPlanner');
+  }
+
   const classes = useStyles();
     return(
-      <React.Fragment>
-        <CssBaseline>
-            <Container maxWidth="xs" className={classes.container}>
-              <div className="content">
-               <CardLogin
-                  input1={
-                    <FormControl className={classes.formControl}  fullWidth={true}>
-                      <StyledTextField  label="Username"id="username"type="email"
-                      />
-                    </FormControl>
-                  }
+      <div>
+        <Body background='https://dashplan.com.br/img/wallpaper/walppaper3.png'/>
+        <Container fixed className={classes.container} maxWidth="xl">
+          <Grid container justify="center"  xl={12}>
+            <Grid
+              item
+              xs={10}
+              s= {10}
+              sm={6}
+              lg={4}
+              xl={4}
+            >
+              <div className="content" >
+                <form onSubmit={handleSubmit}>
+                  <CardLogin
+                    input1={
+                      <FormControl className={classes.formControl}  fullWidth={true}>
+                        <StyledTextField  
+                          label="Username"
+                          id="username"
+                          type="email"
+                          value={email}
+                          onChange={e => setEmail(e.target.value)}
+                        />
+                      </FormControl>
+                    }
 
-                  input2={
-                    <FormControl className={classes.formControl} fullWidth={true}>
-                      <StyledTextField label="Senha" id="senha" type="password"/>
-                    </FormControl>
-                  }
-                  valueButton="entrar"
-                  link="Esqueci minha senha"
-                  hrefDoLink='#'
-               >
-               </CardLogin>
-              </div>
-            </Container>
-        </CssBaseline>
-      </React.Fragment>
+                    input2={
+                      <FormControl className={classes.formControl} fullWidth={true}>
+                        <StyledTextField 
+                          label="Senha" 
+                          id="senha" 
+                          type="password"
+                          onChange={e => setSenha(e.target.value)}
+                          />
+                      </FormControl>
+                    }
+                    valueButton="entrar"
+                    link="Esqueci minha senha"
+                    hrefDoLink='#'
+                  >           
+                </CardLogin>
+              </form>
+            </div>
+          </Grid>
+        </Grid>
+      </Container>
+    </div>
     ) 
   };
 
