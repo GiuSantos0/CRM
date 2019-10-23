@@ -5,7 +5,7 @@ import Login from './pages/Login';
 import DashboardPlanner from './pages/Planejadores/DashboardPlanner';
 
 
-const PrivateRoute = ({ component: Component, ...rest }) => (
+export const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route {...rest} render={props => (
         isAuthenticated()? (
             <Component { ... props}/>
