@@ -2,10 +2,12 @@ import React from 'react';
 import Body from '../../../components/Body';
 import Sidenav from '../../../components/Sidenav';
 import { makeStyles } from '@material-ui/core/styles';
-import { Card, Typography, Grid } from '@material-ui/core';
 import DashboardOutlinedIcon from '@material-ui/icons/DashboardOutlined';
 import CardHeaderAzul from '../../../components/CardHeaderAzul';
-
+import CardHeaderAzulLarge from '../../../components/CardHeaderAzulLarge';
+import ChartBarra from '../../../components/ChartBarra';
+import CardSmallFooter from '../../../components/CardSmallFooter';
+import CardTitleDark from '../../../components/CardTittleDark'
 const useStyles = makeStyles(theme => ({
         root: {
           display: 'flex',
@@ -29,9 +31,6 @@ const useStyles = makeStyles(theme => ({
         margin:{
                 margin:' 30px 10px 5px ',
         },
-        margin2:{
-                margin:' 13px 10px 5px 10px',
-        }
           }))
       
 
@@ -41,34 +40,60 @@ export default function DashboardPlanner() {
         const conteudo = (
 
                 <>
-                <Grid 
-                        item   
-                        xs={12}
-                        s= {12}
-                        sm={12}
-                        lg={12}
-                        xl={12}
-                >
-                        <Card className={classes.margin}>
-                                <Typography className={classes.headerCard} >
-                                        <DashboardOutlinedIcon className={classes.IconCard}/>
-                                        <h3>DASHBOARD</h3>
-                                </Typography>
-                        </Card>
-                </Grid>
-                <Grid container spacing={0}>
+                        <CardTitleDark
+                                title= "DASHBOARD" 
+                                icon={
+                                        <DashboardOutlinedIcon 
+                                                className={classes.IconCard}
+                                        />
+                                }
+                        />
+                        <CardSmallFooter 
+                                theme={{
+                                        background: '#28a745d6', 
+                                        color: 'white'
+                                }}
+                                title="Cobranças Pagas"
+                                conteudoCard="R$100.000"
+
+                        />
+                        <CardSmallFooter
+                                theme={{
+                                        background: '#17a2b8c2', 
+                                        color: 'white'
+                                }}
+                                title="Cobranças Futuras"
+                        />
+                        <CardSmallFooter
+                                theme={{
+                                        background: '#dc3545d9', 
+                                        color: 'white'
+                                }}
+                                title="Cobranças Vencidas"
+
+                        />
+                        <CardSmallFooter
+                                theme={{
+                                        background: 'grey', 
+                                        color: 'white'
+                                }}
+                                title="Cobranças Acumuladas"
+                        />
+
+                         <CardHeaderAzulLarge 
+                                title="graficogrande"
+                                conteudoCard={<ChartBarra/>}
+                        />
+
                         <CardHeaderAzul
-                                title="grafico"
+                                title="grafico" 
                         />
                         <CardHeaderAzul
                                 title="grafico2"
 
                         />     
-                </Grid>
-                <Grid container spacing={0}>
                         <CardHeaderAzul/>
                         <CardHeaderAzul/>     
-                </Grid>
                 </>
         );
 

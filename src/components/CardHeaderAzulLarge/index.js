@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
     margin:{
+            margin:' 30px 10px 5px ',
     },
     margin2:{
     },
@@ -19,17 +20,16 @@ const useStyles = makeStyles(theme => ({
       }))
   
       
-export default function CardHeaderAzul(props) { 
+export default function CardHeaderAzulLarge(props) { 
     const classes = useStyles();
 
     return(
-            <>
                 <Grid item   
                 xs={12}
                 s={12}
                 sm={12}
-                lg={6}
-                xl={6}
+                lg={12}
+                xl={12}
                 >  
                     <Card className={classes.margin2}>
                             <CardHeader className={classes.headerAzul} title={props.title} disableTypography='true' />
@@ -38,6 +38,6 @@ export default function CardHeaderAzul(props) {
                             </CardContent>
                     </Card>
                 </Grid>                   
-            </>
+            
    )
 }

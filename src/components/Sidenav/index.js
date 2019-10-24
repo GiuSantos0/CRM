@@ -31,12 +31,12 @@ const useStyles = makeStyles(theme => ({
   },
   drawer: {
     [theme.breakpoints.up('sm')]: {
-      width: 240,
+      width: 200,
       flexShrink: 0,
     },
   },
   appBar: {
-    marginLeft: 240,
+    marginLeft: 200,
     [theme.breakpoints.up('sm')]: {
       width: `calc(100% - ${drawerWidth}px)`,
     },
@@ -56,11 +56,12 @@ const useStyles = makeStyles(theme => ({
         paddingTop: '2.5vh',
         },
     drawerPaper: {
-    width: 240,
+    width: 220,
     zIndex: 0,
     },
     content: {
         flexGrow: 1,
+        marginLeft: '230px'
     },
     flex:{
         flexGrow: 1,
@@ -202,8 +203,13 @@ function Sidenav(props) {
         </Hidden>
       </nav>
       <main className={classes.content}>
-      <div className={classes.toolbar} />
-      { props.Component }
+       <div className={classes.toolbar} />
+          <Grid container 
+           lg={12}
+           spacing={2}
+          >
+           { props.Component }
+          </Grid>
       </main>
       </Grid>
       </div>
