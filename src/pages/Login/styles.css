@@ -29,7 +29,7 @@
    body{
       background: #000 url('../../assets/img/wallpaper.png') no-repeat;
       background-position: 81% 22% !important;
-      background-size: 410% !important;
+      background-size: 410% ;
       position: relative;
    }
 }
