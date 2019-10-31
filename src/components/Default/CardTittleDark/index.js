@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
     margin:{
-            margin:' 30px 0px 0px ',
+            margin:' 15px 0px 0px ',
     },
 
     headerAzul:{

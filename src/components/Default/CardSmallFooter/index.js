@@ -12,6 +12,15 @@ const useStyles = makeStyles(theme => ({
         padding: '10px 10px',
         fontWeight: '600',
 
+    },
+    conteudoCard:{
+        fontSize: '25px',
+        marginTop: '3px',
+        marginLeft: '10px',
+    },
+    inline:{
+        display: '-webkit-box',
+        textAlign: 'center',
     }
       }))
 
@@ -21,8 +30,12 @@ const useStyles = makeStyles(theme => ({
           const StyledCardActions = styled( CardActions )`
           background-color: ${props => props.theme.background};
           color: ${props => props.theme.color};
-          padding 20px;
+          padding: 20px;
         `;
+
+        const StyledCardContent = styled( CardContent )`
+        color: ${props => props.theme.background};
+      `;
   
         
 
@@ -37,9 +50,9 @@ const useStyles = makeStyles(theme => ({
                     >  
                  
                     <Card className={classes.margin2}>
-                            <CardContent>
-                                <h3>{props.conteudoCard}</h3>
-                            </CardContent>
+                            <StyledCardContent  theme={props.theme} >
+                                <div className={classes.inline} ><i className={classes.iconCard}> {props.iconCard} </i><h3 className={classes.conteudoCard}>{props.conteudoCard}</h3></div>
+                            </StyledCardContent>
                             <StyledCardActions className={classes.headerAzul} theme={props.theme} disableTypography='true' >
                                 <h2>{props.title}</h2>
                             </StyledCardActions>

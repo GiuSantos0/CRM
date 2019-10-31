@@ -6,12 +6,8 @@ import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
 import List from '@material-ui/core/List';
-import {ListItem, Grid} from '@material-ui/core';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import MailIcon from '@material-ui/icons/Mail';
+import { Grid } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -20,22 +16,26 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import AccountCircleOutlined from '@material-ui/icons/AccountCircleOutlined';
 import ExpansionMenu from '../ExpansionMenu';
+import { Main, Saudacao } from './styles';
 
-import logo from '../../assets/img/dashplan.png';
+import logo from '../../../assets/img/dashplan.png';
 
 const drawerWidth = 0;
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: 'flex',
+    flexGrow: 1,
+
   },
   drawer: {
     [theme.breakpoints.up('sm')]: {
-      width: 200,
+      width: 230,
       flexShrink: 0,
+
     },
   },
   appBar: {
+    height: '61px',
     marginLeft: 200,
     [theme.breakpoints.up('sm')]: {
       width: `calc(100% - ${drawerWidth}px)`,
@@ -52,16 +52,20 @@ const useStyles = makeStyles(theme => ({
     },
     toolbar: theme.mixins.toolbar, 
     logo: {
-        height: '10vh',
-        paddingTop: '2.5vh',
+        height: '9vh',
+        paddingTop: '2.3vh',
+        marginLeft: '10px'
         },
     drawerPaper: {
-    width: 220,
-    zIndex: 0,
+      width: 220,
+      zIndex: 0,
+      backgroundColor: '#4e4e4e'
+
     },
     content: {
         flexGrow: 1,
-        marginLeft: '230px'
+        marginLeft: '230px',
+        paddingRight: '10px',
     },
     flex:{
         flexGrow: 1,
@@ -69,7 +73,6 @@ const useStyles = makeStyles(theme => ({
     },
     
     }));
-
 
 function Sidenav(props) {
     const { container } = props;
@@ -80,12 +83,12 @@ function Sidenav(props) {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
 
-  
-    const handleMenu = event => {
-      setAnchorEl(event.currentTarget);
+
+    const handleOpenUser = e => {
+      setAnchorEl(e.currentTarget);
     };
   
-    const handleClose = () => {
+    const handleFechar = () => {
       setAnchorEl(null);
     };
 
@@ -102,7 +105,7 @@ function Sidenav(props) {
           <List button>
                 <ExpansionMenu />
           </List>
-          <Divider />
+          {/* <Divider />
           <List>
             {['All mail', 'Trash', 'Spam'].map((text, index) => (
               <ListItem button key={text}>
@@ -110,20 +113,20 @@ function Sidenav(props) {
                 <ListItemText primary={text} />
                 </ListItem>
         ))}
-      </List>
+      </List> */}
     </div>
   );
 
   return (
     <div className={classes.root}>
-    <Grid container   
-      xs={12}
-      s= {12}
-      sm={12}
-      lg={12}
-      xl={12}
+    <Grid container  
+      className= {classes.root}
+      direction="row"
+      zeroMinWidth
+
       >
       <CssBaseline />
+      <Grid item sm={12}>
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
           <IconButton
@@ -140,13 +143,14 @@ function Sidenav(props) {
           </Typography>
           {auth && (
             <div >
+            <Saudacao>Olá, Planejador!</Saudacao>
               <IconButton
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
-                onClick={handleMenu}
+                onClick={handleOpenUser}
                 color="inherit"
-              >
+              > 
                 <AccountCircleOutlined/>
               </IconButton>
               <Menu
@@ -162,10 +166,10 @@ function Sidenav(props) {
                   horizontal: 'right',
                 }}
                 open={open}
-                onClose={handleClose}
+                onClose={handleFechar}
               >
-                <MenuItem onClick={handleClose}>Minha Conta</MenuItem>
-                <MenuItem onClick={handleClose}>Sair</MenuItem>
+                <MenuItem onClick={handleFechar}>Minha Conta</MenuItem>
+                <MenuItem onClick={handleFechar}>Sair</MenuItem>
               </Menu>
             </div>
           )}
@@ -202,15 +206,18 @@ function Sidenav(props) {
           </Drawer>
         </Hidden>
       </nav>
-      <main className={classes.content}>
+      <Main className={classes.content}>
        <div className={classes.toolbar} />
-          <Grid container 
-           lg={12}
-           spacing={2}
+          <Grid item
+            className={classes.root}
+           sm={12}
+           justify="flex-end"
+          
           >
            { props.Component }
           </Grid>
-      </main>
+      </Main>
+      </Grid>
       </Grid>
       </div>
   );

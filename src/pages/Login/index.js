@@ -1,9 +1,9 @@
 import React , { useState }  from 'react';
 import './styles.css';
 import { FormControl, makeStyles, Grid, Container} from '@material-ui/core';
-import CardLogin from '../../components/CardLogin';
-import Body from '../../components/Body';
-import { StyledTextField } from '../../components/TextField';
+import CardLogin from '../../components/Default/CardLogin';
+import Body from '../../components/Default/Body';
+import { StyledTextField } from '../../components/Default/TextField';
 
 const useStyles = makeStyles(theme => ({
   background: {
@@ -43,7 +43,7 @@ export default function Login({ history }) {
   const classes = useStyles();
     return(
       <div>
-        <Body background='https://dashplan.com.br/img/wallpaper/walppaper3.png'/>
+        <Body background="https://dashplan.com.br/img/wallpaper/walppaper3.png"/>
         <Container fixed className={classes.container} maxWidth="xl">
           <Grid container justify="center"  xl={12}>
             <Grid

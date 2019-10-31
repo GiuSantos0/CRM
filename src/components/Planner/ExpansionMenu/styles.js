@@ -6,3 +6,4 @@ export const MenuIconStyled = styled( MenuIcon )`
     display:none;
  }
 `;
+

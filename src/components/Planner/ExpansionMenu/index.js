@@ -14,19 +14,20 @@ import ExpandMore from '@material-ui/icons/ExpandMore';
 import StarBorder from '@material-ui/icons/StarBorder';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-
-
+import InsertLinkOutlinedIcon from '@material-ui/icons/InsertLinkOutlined';
+import ThumbUpAltOutlinedIcon from '@material-ui/icons/ThumbUpAltOutlined';
 
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
     maxWidth: 360,
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: '#4e4e4e',
     fontFamily: 'Montserrat',
+    color: '#FFF'
   },
   nested: {
     paddingLeft: theme.spacing(4),
-    background: '#eaeaea',
+    background: '#5f5f5f',
     boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
     zIndex: 10,
   },
@@ -41,6 +42,9 @@ const useStyles = makeStyles(theme => ({
   active:{
     backgroundColor: '#f8b100',
   },
+  Icon:{
+    color: '#FFF',
+  }
 }));
 
 export default function NestedList(props) {
@@ -48,6 +52,8 @@ export default function NestedList(props) {
   const { active } = props;
   const [open, setOpen] = React.useState(false);
   const [open2, setOpen2] = React.useState(false);
+  const [open3, setOpen3] = React.useState(false);
+  const [open4, setOpen4] = React.useState(false);
 
   const handleClick1 = () => {
     setOpen(!open);
@@ -55,6 +61,14 @@ export default function NestedList(props) {
 
   const handleClick2 = () => {
     setOpen2(!open2);
+  };
+
+  const handleClick3 = () => {
+    setOpen3(!open3);
+  };
+
+  const handleClick4 = () => {
+    setOpen4(!open4);
   };
 
   NestedList.propTypes = {
@@ -66,30 +80,29 @@ export default function NestedList(props) {
       aria-labelledby="nested-list-subheader"
       subheader={
         <ListSubheader component="div" id="nested-list-subheader">
-          Menu
         </ListSubheader>
       }
       className={classes.root}
     >
-    <ListItem button>
+    <ListItem button component="button" href="/DashPlanner">
       <ListItemIcon>
-          <DashboardOutlined />
+          <DashboardOutlined className={classes.Icon}/>
       </ListItemIcon>
       <ListItemText className={classes.tipografia} primary="Dashboard" />
     </ListItem>
 
     <ListItem button onClick={handleClick1} className={clsx(classes.listItem, {
-      [classes.active]: active,
+      [classes.active]:active,
     })}>
       <ListItemIcon>
-        <GroupOutlined />
+        <GroupOutlined className={classes.Icon}/>
       </ListItemIcon>
       <ListItemText primary="CRM" />
         {open ? <ExpandLess /> : <ExpandMore />}
     </ListItem>
     <Collapse in={open} timeout="auto" unmountOnExit>
-      <List component="div" disablePadding>
-        <ListItem button className={classes.nested}>
+      <List  disablePadding>
+        <ListItem button="true" component="button" href="/Clientes" className={classes.nested}>
           <ListItemIcon>
             <StarBorder />
           </ListItemIcon> 
@@ -100,7 +113,7 @@ export default function NestedList(props) {
     
       <ListItem button onClick={handleClick2}>
         <ListItemIcon>
-          <LocalAtmOutlined />
+          <LocalAtmOutlined className={classes.Icon}/>
         </ListItemIcon>
         <ListItemText className={classes.listItem} primary="Financeiro" />
         {open2 ? <ExpandLess /> : <ExpandMore />}
@@ -113,6 +126,75 @@ export default function NestedList(props) {
             </ListItemIcon>
             <ListItemText primary="Starred" />
           </ListItem>
+
+          
+
+          <ListItem button className={classes.nested}>
+            <ListItemIcon>
+              <StarBorder />
+            </ListItemIcon>
+            <ListItemText primary="Starred" />
+          </ListItem>
+
+          <ListItem button className={classes.nested}>
+            <ListItemIcon>
+              <StarBorder />
+            </ListItemIcon>
+            <ListItemText primary="Starred" />
+          </ListItem>
+        </List>
+      </Collapse>
+      <ListItem button onClick={handleClick3}>
+        <ListItemIcon>
+          <InsertLinkOutlinedIcon className={classes.Icon}/>
+        </ListItemIcon>
+        <ListItemText className={classes.listItem} primary="Links úteis" />
+        {open3 ? <ExpandLess /> : <ExpandMore />}
+      </ListItem>
+      <Collapse in={open3} timeout="auto" unmountOnExit>
+        <List component="div" disablePadding>
+          <ListItem button className={classes.nested}>
+            <ListItemIcon>
+              <StarBorder />
+            </ListItemIcon>
+            <ListItemText primary="Starred" />
+          </ListItem>
+
+          
+
+          <ListItem button className={classes.nested}>
+            <ListItemIcon>
+              <StarBorder />
+            </ListItemIcon>
+            <ListItemText primary="Starred" />
+          </ListItem>
+
+          <ListItem button className={classes.nested}>
+            <ListItemIcon>
+              <StarBorder />
+            </ListItemIcon>
+            <ListItemText primary="Starred" />
+          </ListItem>
+        </List>
+      </Collapse>
+
+      <ListItem button onClick={handleClick4}>
+        <ListItemIcon>
+          <ThumbUpAltOutlinedIcon className={classes.Icon} />
+        </ListItemIcon>
+        <ListItemText className={classes.listItem} primary="NPS" />
+        {open4 ? <ExpandLess /> : <ExpandMore />}
+      </ListItem>
+      <Collapse in={open4} timeout="auto" unmountOnExit>
+        <List component="div" disablePadding>
+          <ListItem button className={classes.nested}>
+            <ListItemIcon>
+              <StarBorder />
+            </ListItemIcon>
+            <ListItemText primary="Starred" />
+          </ListItem>
+
+          
 
           <ListItem button className={classes.nested}>
             <ListItemIcon>
