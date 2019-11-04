@@ -1,8 +1,12 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import Paper from "@material-ui/core/Paper";
 import {
-    SearchState,
-    IntegratedFiltering,
+  SearchState,
+  IntegratedFiltering,
+  PagingState,
+  IntegratedPaging,
+  SortingState,
+  IntegratedSorting,
 } // State or Local Processing Plugins
 from "@devexpress/dx-react-grid";
 import {
@@ -11,74 +15,122 @@ import {
   TableHeaderRow,
   Toolbar,
   SearchPanel,
+  PagingPanel,
+  ColumnChooser,
+  TableColumnVisibility
+  
 } from "@devexpress/dx-react-grid-material-ui";
+import { makeStyles } from '@material-ui/core/styles';
+import api from '../../../services/api';
 
-
-class TableDevExpress extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      columns: [
-        { name: "name", title: "Name" },
-        { name: "sex", title: "Sex" },
-        { name: "city", title: "City" },
-        { name: "car", title: "Car" }
-      ],
-      rows: [
-        { sex: "Female", name: "Sandra", city: "Las Vegas", car: "Audi A4" },
-        { sex: "Male", name: "Paul", city: "Paris", car: "Nissan Altima" },
-        { sex: "Male", name: "Mark", city: "Paris", car: "Honda Accord" },
-        { sex: "Male", name: "Paul", city: "Paris", car: "Nissan Altima" },
-        { sex: "Female", name: "Linda", city: "Austin", car: "Toyota Corolla" },
-        {
-          sex: "Male",
-          name: "Robert",
-          city: "Las Vegas",
-          car: "Chevrolet Cruze"
-        },
-        { sex: "Female", name: "Lisa", city: "London", car: "BMW 750" },
-        { sex: "Male", name: "Mark", city: "Chicago", car: "Toyota Corolla" },
-        {
-          sex: "Male",
-          name: "Thomas",
-          city: "Rio de Janeiro",
-          car: "Honda Accord"
-        },
-        { sex: "Male", name: "Robert", city: "Las Vegas", car: "Honda Civic" },
-        { sex: "Female", name: "Betty", city: "Paris", car: "Honda Civic" },
-        {
-          sex: "Male",
-          name: "Robert",
-          city: "Los Angeles",
-          car: "Honda Accord"
-        },
-        {
-          sex: "Male",
-          name: "William",
-          city: "Los Angeles",
-          car: "Honda Civic"
-        },
-        { sex: "Male", name: "Mark", city: "Austin", car: "Nissan Altima" }
-      ],
-    };
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: 'flex',
+  },
+  th:{
+    borderBottom: '3px solid #f8b100',
+    backgroundColor: 'grey',
   }
-  render() {
-    const { rows, columns } = this.state;
+
+    }))
+
+export default function TableDevExpress(){
+  // const [ linhas, setLinhas ] = useState([]);
+
+  // useEffect(() => {
+  //   async function loadRows(){
+  //     const response = await api.get('/dashplan/backoffice/clientes.php');
+  //     setLinhas(response.data);
+  //   }
+  //   loadRows();
+  // }, []);
+  // const dados = [];
+  // linhas.map(linhas => ( dados = (linhas.cliente)));
+  // console.log(dados);
+  
+  const [columns] = useState([
+    { name: "name", title: "Name" },
+    { name: "sex", title: "Gênero" },
+    { name: "city", title: "Cidade" },
+    { name: "planejador", title: "Planner" }
+  ]);
+  
+  const [rows] = useState([ 
+    { sex: "Female", name: "Sandra", city: "Las Vegas", planejador: "Fernanda" },
+    { sex: "Male", name: "Paul", city: "Paris", planejador: "Robson" },
+    { sex: "Male", name: "Mark", city: "Paris", planejador: "Luis" },
+    { sex: "Male", name: "Paul", city: "Paris", planejador: "Robson" },
+    { sex: "Female", name: "Linda", city: "Austin", planejador: "Bruno" },
+    {
+      sex: "Male",
+      name: "Robert",
+      city: "Las Vegas",
+      planejador: "Isabela"
+    },
+    { sex: "Female", name: "Lisa", city: "London", planejador: "Isabela" },
+    { sex: "Male", name: "Mark", city: "Chicago", planejador: "Bruno" },
+    {
+      sex: "Male",
+      name: "Thomas",
+      city: "Rio de Janeiro",
+      planejador: "Luis"
+    },
+    { sex: "Male", name: "Robert", city: "Las Vegas", planejador: "Fernanda" },
+    { sex: "Female", name: "Betty", city: "Paris", planejador: "Fernanda" },
+    {
+      sex: "Male",
+      name: "Robert",
+      city: "Los Angeles",
+      planejador: "Luis"
+    },
+    {
+      sex: "Male",
+      name: "William",
+      city: "Los Angeles",
+      planejador: "Isabela"
+    },
+    { sex: "Male", name: "Mark", city: "Austin", planejador: "Robson" },
+
+  ]);
+
+    const [currentPage, setCurrentPage] = useState(0);
+    const [pageSize, setPageSize] = useState(6);
+    const [pageSizes] = useState([6, 12, 24]);
+    const [sorting, setSorting] = useState([{ columnName: 'name', direction: 'asc' }]);
+    const [defaultHiddenColumnNames] = useState(['sex', 'city'])
+
+      const classes = useStyles();
 
     return (
       <Paper>
         <Grid rows={rows} columns={columns}>
-          <SearchState defaultValue="Paris" />
+          <PagingState
+            currentPage={currentPage}
+            onCurrentPageChange={setCurrentPage}
+            pageSize={pageSize}
+            onPageSizeChange={setPageSize}
+          />
+          <SearchState/>
           <IntegratedFiltering />
-          <Table />
-          <TableHeaderRow />
+          <IntegratedPaging />
+          <SortingState
+            sorting={sorting}
+            onSortingChange={setSorting}
+          />
+          <IntegratedSorting />
+          <Table/>
+          <TableHeaderRow className={classes.th} showSortingControls/>
+          <TableColumnVisibility
+            defaultHiddenColumnNames={defaultHiddenColumnNames}
+          />
           <Toolbar />
-          <SearchPanel />
+          <ColumnChooser/>
+          <SearchPanel/>
+          <PagingPanel
+            pageSizes={pageSizes}
+
+          />
         </Grid>
       </Paper>
     );
-  }
 }
-
-export default TableDevExpress;
