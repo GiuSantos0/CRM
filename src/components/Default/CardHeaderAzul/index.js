@@ -36,6 +36,7 @@ export default function CardHeaderAzul(props) {
                             <CardContent>
                                 {props.conteudoCard}
                             </CardContent>
+                                {props.conteudoCard2}
                     </Card>
                 </Grid>                   
             </>

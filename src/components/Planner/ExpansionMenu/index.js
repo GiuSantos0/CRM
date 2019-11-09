@@ -54,9 +54,13 @@ export default function NestedList(props) {
   const [open2, setOpen2] = React.useState(false);
   const [open3, setOpen3] = React.useState(false);
   const [open4, setOpen4] = React.useState(false);
+  const [open5, setOpen5] = React.useState(false);
 
   const handleClick1 = () => {
     setOpen(!open);
+  };  
+  const handleClick5 = () => {
+    setOpen5(!open5);
   };
 
   const handleClick2 = () => {
@@ -84,12 +88,25 @@ export default function NestedList(props) {
       }
       className={classes.root}
     >
-    <ListItem button component="button" href="/DashPlanner">
+    <ListItem button onClick={handleClick5} className={clsx(classes.listItem, {
+      [classes.active]:active,
+    })}>
       <ListItemIcon>
-          <DashboardOutlined className={classes.Icon}/>
+        <DashboardOutlined className={classes.Icon}/>
       </ListItemIcon>
-      <ListItemText className={classes.tipografia} primary="Dashboard" />
+      <ListItemText primary="Dashboards" />
+        {open5 ? <ExpandLess /> : <ExpandMore />}
     </ListItem>
+    <Collapse in={open5} timeout="auto" unmountOnExit>
+      <List  disablePadding>
+        <ListItem button="true" component="button" href="/DashFinanceiro" className={classes.nested}>
+          <ListItemText primary="Dash Financeiro" />
+        </ListItem>
+        <ListItem button="true" component="button" href="/DashPlanner" className={classes.nested}>
+          <ListItemText primary="Dash Planejamento" />
+        </ListItem>
+      </List>
+    </Collapse>
 
     <ListItem button onClick={handleClick1} className={clsx(classes.listItem, {
       [classes.active]:active,
@@ -103,10 +120,10 @@ export default function NestedList(props) {
     <Collapse in={open} timeout="auto" unmountOnExit>
       <List  disablePadding>
         <ListItem button="true" component="button" href="/Clientes" className={classes.nested}>
-          <ListItemIcon>
-            <StarBorder />
-          </ListItemIcon> 
           <ListItemText primary="Clientes" />
+        </ListItem>
+        <ListItem button="true" component="button" href="/Tasks" className={classes.nested}>
+          <ListItemText primary="Tasks" />
         </ListItem>
       </List>
     </Collapse>

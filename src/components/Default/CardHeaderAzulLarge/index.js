@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Grid, CardContent, CardHeader } from '@material-ui/core';
+import { Card, Grid, CardContent, CardHeader, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 
@@ -16,6 +16,11 @@ const useStyles = makeStyles(theme => ({
         fontWeight: '600',
         color: '#000054',
 
+    },
+    button:{
+        float: "right",
+        height: "20px",
+        fontSize: "10px",
     }
       }))
   
@@ -32,10 +37,21 @@ export default function CardHeaderAzulLarge(props) {
                 xl={12}
                 >  
                     <Card className={classes.margin2}>
-                            <CardHeader className={classes.headerAzul} title={props.title} disableTypography='true' />
+                            <CardHeader 
+                                className={classes.headerAzul} 
+                                title={props.title} 
+                                subheader={
+                                    <Button variant="contained" href="#contained-buttons" className={classes.button}>
+                                    {props.buttonName}
+                                    </Button>
+                                }
+                                disableTypography='true' >
+                    
+                            </CardHeader>
                             <CardContent>
                                 {props.conteudoCard}
                             </CardContent>
+                                {props.conteudoCard2}
                     </Card>
                 </Grid>                   
             

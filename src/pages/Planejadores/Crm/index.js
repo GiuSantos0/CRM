@@ -4,7 +4,7 @@ import Sidenav from '../../../components/Planner/Sidenav';
 import CardTittleDark from '../../../components/Default/CardTittleDark';
 import GroupOutlined from '@material-ui/icons/GroupOutlined';
 import { makeStyles } from '@material-ui/core/styles';
-import { Card, Grid, CardContent } from '@material-ui/core';
+import { Card, Grid } from '@material-ui/core';
 import TableDevExpress from '../../../components/Default/TableDevExpress';
 
 const useStyles = makeStyles(theme => ({

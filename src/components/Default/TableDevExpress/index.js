@@ -52,44 +52,45 @@ export default function TableDevExpress(){
     { name: "name", title: "Name" },
     { name: "sex", title: "Gênero" },
     { name: "city", title: "Cidade" },
-    { name: "planejador", title: "Planner" }
+    { name: "planejador", title: "Planner" },
+    { name: "status", title: "Status" },
   ]);
   
   const [rows] = useState([ 
-    { sex: "Female", name: "Sandra", city: "Las Vegas", planejador: "Fernanda" },
-    { sex: "Male", name: "Paul", city: "Paris", planejador: "Robson" },
-    { sex: "Male", name: "Mark", city: "Paris", planejador: "Luis" },
-    { sex: "Male", name: "Paul", city: "Paris", planejador: "Robson" },
-    { sex: "Female", name: "Linda", city: "Austin", planejador: "Bruno" },
+    { sex: "Female", name: "Sandra", city: "Las Vegas", planejador: "Fernanda" , status: 'Contrato Emitido'},
+    { sex: "Male", name: "Paul", city: "Paris", planejador: "Robson", status: 'Contrato Emitido' },
+    { sex: "Male", name: "Mark", city: "Paris", planejador: "Luis", status: 'Contrato Emitido' },
+    { sex: "Male", name: "Paul", city: "Paris", planejador: "Robson", status: 'Contrato Emitido' },
+    { sex: "Female", name: "Linda", city: "Austin", planejador: "Bruno", status: 'Contrato Emitido' },
     {
       sex: "Male",
       name: "Robert",
       city: "Las Vegas",
-      planejador: "Isabela"
+      planejador: "Isabela", status: 'Contrato Emitido'
     },
-    { sex: "Female", name: "Lisa", city: "London", planejador: "Isabela" },
-    { sex: "Male", name: "Mark", city: "Chicago", planejador: "Bruno" },
+    { sex: "Female", name: "Lisa", city: "London", planejador: "Isabela", status: 'Contrato Emitido' },
+    { sex: "Male", name: "Mark", city: "Chicago", planejador: "Bruno", status: 'Contrato Emitido' },
     {
       sex: "Male",
       name: "Thomas",
       city: "Rio de Janeiro",
-      planejador: "Luis"
+      planejador: "Luis", status: 'Contrato Emitido'
     },
-    { sex: "Male", name: "Robert", city: "Las Vegas", planejador: "Fernanda" },
-    { sex: "Female", name: "Betty", city: "Paris", planejador: "Fernanda" },
+    { sex: "Male", name: "Robert", city: "Las Vegas", planejador: "Fernanda", status: 'Contrato Emitido' },
+    { sex: "Female", name: "Betty", city: "Paris", planejador: "Fernanda", status: 'Contrato Emitido' },
     {
       sex: "Male",
       name: "Robert",
       city: "Los Angeles",
-      planejador: "Luis"
+      planejador: "Luis", status: 'Contrato Emitido'
     },
     {
       sex: "Male",
       name: "William",
       city: "Los Angeles",
-      planejador: "Isabela"
+      planejador: "Isabela", status: 'Contrato Emitido'
     },
-    { sex: "Male", name: "Mark", city: "Austin", planejador: "Robson" },
+    { sex: "Male", name: "Mark", city: "Austin", planejador: "Robson", status: 'Contrato Emitido' },
 
   ]);
 

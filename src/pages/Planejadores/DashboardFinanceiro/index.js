@@ -52,9 +52,9 @@ export default function DashboardPlanner() {
 
         const conteudo = (
                 <>
-                        <Grid container spacing={1} >
+                        <Grid container spacing={1}>
                                 <CardTitleDark
-                                        title= "DASHBOARD" 
+                                        title= "DASHBOARD FINANCEIRO" 
                                         icon={
                                                 <DashboardOutlinedIcon 
                                                         className={classes.IconCard}
@@ -68,7 +68,10 @@ export default function DashboardPlanner() {
                                         }}
                                         title="Cobranças Pagas"
                                         conteudoCard="R$100.000"
-                                        iconCard={<DoneOutlinedIcon className={classes.iconCardSmall}/>}
+                                        iconCard=
+                                        {
+                                                <DoneOutlinedIcon className={classes.iconCardSmall}/>
+                                        }
 
                                 />
                                 <CardSmallFooter

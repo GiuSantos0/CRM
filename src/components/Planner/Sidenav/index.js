@@ -98,7 +98,7 @@ function Sidenav(props) {
     
     const drawer = (
         <div>
-          <div className={classes.toolbar} >
+          <div className={classes.toolbar}>
             <img src={ logo } alt="logo dashplan" className={classes.logo}/>
           </div>
           <Divider />

@@ -4,7 +4,8 @@ import { isAuthenticated } from './services/auth';
 import Login from './pages/Login';
 
 // Planejadores
-import DashboardPlanner from './pages/Planejadores/DashboardPlanner';
+import DashboardFinanceiroPlanner from './pages/Planejadores/DashboardFinanceiro';
+import DashboardPlanejamentoPlanner from './pages/Planejadores/DashboardPlanejamento';
 import Crm from './pages/Planejadores/Crm';
 
 
@@ -24,8 +25,10 @@ export default function Routes() {
         <BrowserRouter>
             <Switch>
                 <Route exact path="/" component={Login}/>
-                <PrivateRoute path="/DashPlanner" component={DashboardPlanner}/>
+                <PrivateRoute path="/DashFinanceiro" component={DashboardFinanceiroPlanner}/>
+                <PrivateRoute path="/DashPlanner" component={DashboardPlanejamentoPlanner}/>
                 <PrivateRoute path="/Clientes" component={Crm}/>
+                <PrivateRoute path="/Tasks" component={Crm}/>
                 <Route path="*" component={() => <h1>Page not found</h1>} />
             </Switch>
         </BrowserRouter>
