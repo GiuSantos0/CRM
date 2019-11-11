@@ -154,6 +154,7 @@ export default function DashboardPlannerComercial() {
                                         title="Tarefas"
                                         conteudoCard2={<Tasks/>}
                                         buttonName='Mais Tarefas'
+                                        href="/Tasks"
                                 />
                             </Grid>  
                             </Grid> 

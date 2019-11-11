@@ -41,7 +41,7 @@ export default function CardHeaderAzulLarge(props) {
                                 className={classes.headerAzul} 
                                 title={props.title} 
                                 subheader={
-                                    <Button variant="contained" href="#contained-buttons" className={classes.button}>
+                                    <Button variant="contained" href={props.href} className={classes.button}>
                                     {props.buttonName}
                                     </Button>
                                 }

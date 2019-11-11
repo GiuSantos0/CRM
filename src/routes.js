@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import DashboardFinanceiroPlanner from './pages/Planejadores/DashboardFinanceiro';
 import DashboardPlanejamentoPlanner from './pages/Planejadores/DashboardPlanejamento';
 import Crm from './pages/Planejadores/Crm';
+import Tasks from './pages/Planejadores/Tasks';
 
 
 // Vê se esta autenticado
@@ -28,7 +29,7 @@ export default function Routes() {
                 <PrivateRoute path="/DashFinanceiro" component={DashboardFinanceiroPlanner}/>
                 <PrivateRoute path="/DashPlanner" component={DashboardPlanejamentoPlanner}/>
                 <PrivateRoute path="/Clientes" component={Crm}/>
-                <PrivateRoute path="/Tasks" component={Crm}/>
+                <PrivateRoute path="/Tasks" component={Tasks}/>
                 <Route path="*" component={() => <h1>Page not found</h1>} />
             </Switch>
         </BrowserRouter>
