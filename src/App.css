@@ -17,3 +17,14 @@ html, body, #root {
 body, input, button {
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
+
+.dx-icon, .dx-datebox-calendar ,.dx-dropdowneditor-icon , .dx-icon-edit {
+  font-family: DXIcons !important;
+}
+
+.dx-datagrid {
+  background: transparent !important;
+}
+tr:hover{
+  background: rgb(226, 226, 226);
+}

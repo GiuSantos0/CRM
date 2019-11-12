@@ -15,7 +15,7 @@ import PersonAddDisabledOutlinedIcon from '@material-ui/icons/PersonAddDisabledO
 import EventAvailableOutlinedIcon from '@material-ui/icons/EventAvailableOutlined';
 import DateRangeOutlinedIcon from '@material-ui/icons/DateRangeOutlined';
 import TabelaSkills from '../../../components/Planner/TabelaSkills';
-import Tasks from '../../../components/Planner/TasksPlanner';
+// import Tasks from '../../../components/Planner/TasksPlanner';
 import { Grid } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
@@ -70,7 +70,7 @@ export default function DashboardPlannerComercial() {
                                         conteudoCard={
                                             <ChartRadar/> 
                                         }
-                                        conteudoCard2={                                            <TabelaSkills/>}
+                                   
 
                                 />
                                         
@@ -152,7 +152,6 @@ export default function DashboardPlannerComercial() {
 
                                 <CardHeaderAzulLarge 
                                         title="Tarefas"
-                                        conteudoCard2={<Tasks/>}
                                         buttonName='Mais Tarefas'
                                         href="/Tasks"
                                 />

@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import Paper from '@material-ui/core/Paper';
-import {
-  SelectionState,
-  PagingState,
-  IntegratedPaging,
-  IntegratedSelection,
-} from '@devexpress/dx-react-grid';
-import {
-  Grid,
-  Table,
-  TableHeaderRow,
-  TableSelection,
-  PagingPanel,
-} from '@devexpress/dx-react-grid-material-ui';
+// import {
+//   SelectionState,
+//   PagingState,
+//   IntegratedPaging,
+//   IntegratedSelection,
+// } from '@devexpress/dx-react-grid';
+// import {
+//   Grid,
+//   Table,
+//   TableHeaderRow,
+//   TableSelection,
+//   PagingPanel,
+// } from '@devexpress/dx-react-grid-material-ui';
 
 
 export default () => {
