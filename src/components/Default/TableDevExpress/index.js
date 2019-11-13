@@ -14,12 +14,12 @@ import DataGrid, {
   Button
 } from 'devextreme-react/data-grid';
 import LocalHospitalOutlinedIcon from '@material-ui/icons/LocalHospitalOutlined';
-
+import StatusContrato from '../StatusContrato';
 
 import { Item } from 'devextreme-react/form';
-import { employees, states } from './data.js';
+import { employees, states, Status } from './data.js';
 
-const pageSizes = [10, 25];
+const pageSizes = [8, 16, 50];
 
 class App extends React.Component {
   constructor(props) {
@@ -53,6 +53,7 @@ class App extends React.Component {
                 <Item dataField={'UltimoContato'} />
                 <Item dataField={'Cargo'} />
                 <Item dataField={'AssContrato'} />
+                <Item dataField={'EtapaPercent'} />
                 <Item
                   dataField={'OBS'}
                   colSpan={2}
@@ -68,6 +69,49 @@ class App extends React.Component {
           <Column dataField={'Nome'} caption={'Nome'} />
           <Column dataField={'Sobrenome'} />
           <Column dataField={'UltimoContato'} dataType={'date'} />
+          <Column 
+            dataSource={Status} 
+            valueExpr={'EtapaPercent'} 
+            displayExpr={'EtapaPercent'} 
+            cssClass={'bullet'}
+            dataType={'number'}
+            format={'percent'}
+            alignment={'right'}
+            allowGrouping={false}
+            dataField={'EtapaPercent'}
+            caption={'Andamento Contrato'}
+            cellRender={StatusContrato}
+            dataSource={Status} 
+
+          >
+            <Lookup 
+              dataSource={Status} 
+              valueExpr={'EtapaPercent'} 
+              displayExpr={'Name'} 
+              cssClass={'bullet'}
+              dataType={'number'}
+              format={'percent'}
+              alignment={'right'}
+              dataField={'EtapaPercent'}
+              allowGrouping={false}
+            />
+          </Column>
+          <Column 
+            dataSource={Status} 
+            valueExpr={'EtapaPercent'} 
+            displayExpr={'EtapaPercent'} 
+            dataField={'EtapaPercent'}
+            caption={'Etapa'}
+            dataSource={Status} 
+
+          >
+            <Lookup 
+              dataSource={Status} 
+              valueExpr={'EtapaPercent'} 
+              displayExpr={'Name'} 
+              dataField={'EtapaPercent'}
+            />
+          </Column>
           <Column dataField={'Cargo'} width={170} visible={false}/>
           <Column dataField={'AssContrato'} dataType={'date'} visible={false}/>
           <Column dataField={'StateID'} caption={'Estado'} width={125}>
@@ -100,7 +144,7 @@ class App extends React.Component {
   
 
           <Pager allowedPageSizes={pageSizes} showPageSizeSelector={true} />
-          <Paging defaultPageSize={10} />
+          <Paging defaultPageSize={8} />
         </DataGrid>
       </div>
     );
