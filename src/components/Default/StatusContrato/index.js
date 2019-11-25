@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Bullet, { Font, Margin, Size, Tooltip } from 'devextreme-react/bullet';
+import Bullet, { Font, Margin, Size, Tooltip } from "devextreme/viz/bullet";
 
 
 const customizeTooltip = function(data) {

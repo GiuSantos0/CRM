@@ -1,95 +1,105 @@
-import React , { useState }  from 'react';
+import React , { Component }  from 'react';
 import './styles.css';
-import { FormControl, makeStyles, Grid, Container} from '@material-ui/core';
+import { FormControl, Grid, Container} from '@material-ui/core';
 import CardLogin from '../../components/Default/CardLogin';
 import Body from '../../components/Default/Body';
 import { StyledTextField } from '../../components/Default/TextField';
+import { login } from "../../services/auth";
+import api from "../../services/api";
 
-const useStyles = makeStyles(theme => ({
-  background: {
-    background: "#000 url('https://dashplan.com.br/img/wallpaper/walppaper3.png') no-repeat",
-    backgroundPosition: '81% 11%',
-    backgroundSize: '322% !important',
-    width: '100%',
-    height: '100%',
-  },
-  container: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
-    width: '100%',
-  },
-  formControl: {
-    width:'100%',
-  },
 
-}));
+class Login extends Component {
+  
+  state = {
+    email: "",
+    password: "",
+    error: ""
+  };
 
-export default function Login({ history }) { 
-  const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState('');
-
-  function handleSubmit(e) {
+  handleSignIn = async e => {
     e.preventDefault();
+    const { email, password } = this.state;
+    if (!email || !password) {
+      this.setState({ error: "Preencha e-mail e senha para continuar!" });
+    } else {
+      try {
+        const response = await api.post("/sessions", { email, password });
+        login(response.data.token);
+        this.props.history.push("/DashPlanner");
+      } catch (err) {
+        this.setState({
+          error:
+            "Houve um problema com o login, verifique suas credenciais. T.T"
+        });
+      }
+    }
+  };
 
-    console.log(email, senha);
+  // const [email, setEmail] = useState('');
+  // const [senha, setSenha] = useState('');
 
-    history.push('/DashPlanner');
-  }
+  // function handleSubmit(e) {
+  //   e.preventDefault();
 
-  const classes = useStyles();
-    return(
+  //   console.log(email, senha);
+
+  //   history.push('/DashPlanner');
+  // }
+
+  render() {
+    return (
       <div>
         <Body background="https://dashplan.com.br/img/wallpaper/walppaper3.png"/>
-        <Container fixed className={classes.container} maxWidth="xl">
-          <Grid container justify="center"  xl={12}>
-            <Grid
-              item
-              xs={10}
-              s= {10}
-              sm={6}
-              lg={4}
-              xl={4}
-            >
-              <div className="content" >
-                <form onSubmit={handleSubmit}>
-                  <CardLogin
-                    input1={
-                      <FormControl className={classes.formControl}  fullWidth={true}>
-                        <StyledTextField  
-                          label="Username"
-                          id="username"
-                          type="email"
-                          value={email}
-                          onChange={e => setEmail(e.target.value)}
-                        />
-                      </FormControl>
-                    }
+        <Container fixed className='container' maxWidth="xl">
+          <form onSubmit={this.handleSignIn}>
+            <Grid container justify="center"  xl={12}>
+              <Grid
+                item
+                xs={10}
+                s= {10}
+                sm={6}
+                lg={4}
+                xl={4}
+              >
+                <div className="content" >
+                 {this.state.error && <p>{this.state.error}</p>}
+                    <CardLogin
+                      input1={
+                        
+                        <FormControl className='formControl'  fullWidth={true}>
+                          <StyledTextField  
+                            label="Username"
+                            id="emailInput"
+                            type="email"
+                            onChange={e => this.setState({ email: e.target.value })}
 
-                    input2={
-                      <FormControl className={classes.formControl} fullWidth={true}>
-                        <StyledTextField 
-                          label="Senha" 
-                          id="senha" 
-                          type="password"
-                          onChange={e => setSenha(e.target.value)}
                           />
-                      </FormControl>
-                    }
-                    valueButton="entrar"
-                    link="Esqueci minha senha"
-                    hrefDoLink='#'
-                  >           
-                </CardLogin>
-              </form>
-            </div>
+                        </FormControl>
+                      }
+
+                      input2={
+                        <FormControl className='formControl' fullWidth={true}>
+                          <StyledTextField 
+                            label="Senha" 
+                            id="passwordInput" 
+                            type="password"
+                            onChange={e => this.setState({ password: e.target.value })}
+                            />
+                        </FormControl>
+                      }
+                      valueButton="entrar"
+                      link="Esqueci minha senha"
+                      hrefDoLink='#'
+                    >           
+                  </CardLogin>
+              </div>
+            </Grid>
           </Grid>
-        </Grid>
+        </form>
       </Container>
     </div>
     ) 
-  };
+  }
+};
 
+export default Login;

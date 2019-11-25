@@ -3,7 +3,7 @@ import Body from '../../../components/Default/Body';
 import Sidenav from '../../../components/Planner/Sidenav';
 import { makeStyles } from '@material-ui/core/styles';
 import AssignmentTurnedInOutlinedIcon from '@material-ui/icons/AssignmentTurnedInOutlined';
-import CardSmallFooter from '../../../components/Default/CardSmallEmpilhado';
+// import CardSmallFooter from '../../../components/Default/CardSmallEmpilhado';
 import CardTitleDark from '../../../components/Default/CardTittleDark';
 
 import { Grid, Card } from '@material-ui/core';

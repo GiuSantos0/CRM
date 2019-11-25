@@ -25,8 +25,6 @@ const useStyles = makeStyles(theme => ({
             fontSize: '20px',
             fontWeight: '600',
     },
-
-
     margin:{
             margin:' 30px 10px 5px ',
     },
@@ -45,7 +43,7 @@ export default function Crm(){
 
     const conteudo = (
         <>
-            <Grid container sm={12}>
+            <Grid container>
                 <Grid item sm={12}></Grid>
                 <CardTittleDark
                     title= "CRM" 

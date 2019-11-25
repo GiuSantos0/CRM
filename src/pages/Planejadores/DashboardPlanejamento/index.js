@@ -14,7 +14,7 @@ import EmojiPeopleOutlinedIcon from '@material-ui/icons/EmojiPeopleOutlined';
 import PersonAddDisabledOutlinedIcon from '@material-ui/icons/PersonAddDisabledOutlined';
 import EventAvailableOutlinedIcon from '@material-ui/icons/EventAvailableOutlined';
 import DateRangeOutlinedIcon from '@material-ui/icons/DateRangeOutlined';
-import TabelaSkills from '../../../components/Planner/TabelaSkills';
+// import TabelaSkills from '../../../components/Planner/TabelaSkills';
 // import Tasks from '../../../components/Planner/TasksPlanner';
 import { Grid } from '@material-ui/core';
 

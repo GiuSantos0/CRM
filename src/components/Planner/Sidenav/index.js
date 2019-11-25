@@ -17,6 +17,9 @@ import Menu from '@material-ui/core/Menu';
 import AccountCircleOutlined from '@material-ui/icons/AccountCircleOutlined';
 import ExpansionMenu from '../ExpansionMenu';
 import { Main, Saudacao } from './styles';
+import { logout } from "../../../services/auth";
+import { useHistory } from "react-router-dom"
+
 
 import logo from '../../../assets/img/dashplan.png';
 
@@ -82,7 +85,12 @@ function Sidenav(props) {
     const [auth] = React.useState(true);
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
+    let history = useHistory();
 
+    const handleLogout = e => {
+      logout();
+      history.push("/");
+    };
 
     const handleOpenUser = e => {
       setAnchorEl(e.currentTarget);
@@ -169,7 +177,7 @@ function Sidenav(props) {
                 onClose={handleFechar}
               >
                 <MenuItem onClick={handleFechar}>Minha Conta</MenuItem>
-                <MenuItem onClick={handleFechar}>Sair</MenuItem>
+                <MenuItem history={props}onClick={handleLogout}>Sair</MenuItem>
               </Menu>
             </div>
           )}

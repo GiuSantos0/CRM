@@ -21,14 +21,14 @@ import { employees, states, Status } from './data.js';
 
 const pageSizes = [8, 16, 50];
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.ClinicaClick = this.ClinicaClick.bind(this);
-  }
-    ClinicaClick() {
-    return <a href="/Clientes2"></a>;
-  }
+class Table extends React.Component {
+  // constructor(props) {
+  //   super(props);
+  //   this.ClinicaClick = this.ClinicaClick.bind(this);
+  // }
+  //   ClinicaClick() {
+  //   return <a tittle="va para clinica"href="/Clientes2"></a>;
+  // }
   render() {
     return (
       <div id={'data-grid-demo'}>
@@ -81,7 +81,6 @@ class App extends React.Component {
             dataField={'EtapaPercent'}
             caption={'Andamento Contrato'}
             cellRender={StatusContrato}
-            dataSource={Status} 
 
           >
             <Lookup 
@@ -97,7 +96,6 @@ class App extends React.Component {
             />
           </Column>
           <Column 
-            dataSource={Status} 
             valueExpr={'EtapaPercent'} 
             displayExpr={'EtapaPercent'} 
             dataField={'EtapaPercent'}
@@ -151,4 +149,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default Table;
