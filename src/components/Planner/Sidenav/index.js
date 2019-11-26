@@ -18,8 +18,8 @@ import AccountCircleOutlined from '@material-ui/icons/AccountCircleOutlined';
 import ExpansionMenu from '../ExpansionMenu';
 import { Main, Saudacao } from './styles';
 import { logout } from "../../../services/auth";
-import { useHistory } from "react-router-dom"
-
+import { useHistory } from "react-router-dom";
+import NameUser from '../../Default/NameUser';
 
 import logo from '../../../assets/img/dashplan.png';
 
@@ -151,7 +151,7 @@ function Sidenav(props) {
           </Typography>
           {auth && (
             <div >
-            <Saudacao>Olá, Planejador!</Saudacao>
+            <Saudacao>Olá, Planejador!<NameUser/></Saudacao>
               <IconButton
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
