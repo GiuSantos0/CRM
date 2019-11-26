@@ -7,7 +7,7 @@ import DoneOutlinedIcon from '@material-ui/icons/DoneOutlined';
 import MoreHorizOutlinedIcon from '@material-ui/icons/MoreHorizOutlined';
 import HourglassEmptyOutlinedIcon from '@material-ui/icons/HourglassEmptyOutlined';
 import MoneyOffOutlinedIcon from '@material-ui/icons/MoneyOffOutlined';
-import CardHeaderAzul from '../../../components/Default/CardHeaderAzul';
+// import CardHeaderAzul from '../../../components/Default/CardHeaderAzul';
 import CardHeaderAzulLarge from '../../../components/Default/CardHeaderAzulLarge';
 import ChartBarra from '../../../components/Planner/ChartBarra';
 import CardSmallFooter from '../../../components/Default/CardSmallFooter';
@@ -110,13 +110,13 @@ export default function DashboardPlanner() {
                                         conteudoCard={<ChartBarra/>}
                                 />
 
-                                <CardHeaderAzul
+                                {/* <CardHeaderAzul
                                         title="grafico" 
                                 />
                                 <CardHeaderAzul
                                         title="grafico2"
 
-                                />   
+                                />    */}
                         </Grid>   
                 </>
         );

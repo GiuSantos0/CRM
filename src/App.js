@@ -1,11 +1,10 @@
 import 'devextreme/dist/css/dx.common.css';
 // import 'devextreme/dist/css/dx.material.orange.light.compact.css';
 import 'devextreme/dist/css/dx.material.gfai.css';
-
-// Add the Firebase services that you want to use
 import React from 'react';
 import './App.css';
 import Routes from './routes';
+
 
 function App() {
   return (

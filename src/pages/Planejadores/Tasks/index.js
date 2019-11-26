@@ -38,6 +38,11 @@ const useStyles = makeStyles(theme => ({
                 flexGrow: 1,
                 marginLeft: '230px'
             },
+            card:{
+                width: '100%',
+                padding: '1%',
+                margin: '0px 5px',
+            }
           }))
       
 
@@ -56,7 +61,7 @@ export default function Tasks() {
                                 }
                             />
                             <Card className={classes.card}>
-
+                                <h1>Em Construção</h1>
                             </Card>
                         </Grid>   
                 </>
