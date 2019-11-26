@@ -19,7 +19,7 @@ import StatusContrato from '../StatusContrato';
 import { Item } from 'devextreme-react/form';
 import { employees, states, Status } from './data.js';
 
-const pageSizes = [8, 16, 50];
+const pageSizes = [ 8, 16, 50 ];
 
 class Table extends React.Component {
   // constructor(props) {
@@ -112,7 +112,7 @@ class Table extends React.Component {
           </Column>
           <Column dataField={'Cargo'} width={170} visible={false}/>
           <Column dataField={'AssContrato'} dataType={'date'} visible={false}/>
-          <Column dataField={'StateID'} caption={'Estado'} width={125}>
+          <Column dataField={'StateID'} caption={'Estado'} width={125} visible={false}>
             <Lookup dataSource={states} valueExpr={'ID'} displayExpr={'Name'} />
           </Column>
           <Column dataField={'Endereco'} caption={'Endereço'} visible={false} />
