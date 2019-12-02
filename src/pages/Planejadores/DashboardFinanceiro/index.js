@@ -124,7 +124,7 @@ export default function DashboardPlanner() {
     return( 
         <div>
                 <Body background=''/>
-                        <Sidenav Component={conteudo}/>
+                <Sidenav Component={conteudo}/>
         </div>
         );
 };

@@ -4,6 +4,8 @@ import Lottie from 'react-lottie';
 import * as MoneyLoad from "../../../assets/loading.json";
 import * as CheckLoading from "../../../assets/checkloading.json";
 import Routes from '../../../routes';
+import { StyledBg } from './styles.js';
+import Body from '../Body';
 
 const defaultOptions = {
     loop: true,
@@ -48,14 +50,17 @@ export default class Loading extends React.Component {
             <div>
                 {!this.state.done ? (
                     <Fadein>
-                        <div>
-                            <h1>fetching pizza</h1>
-                            {!this.state.loading ? (
-                                <Lottie options={defaultOptions} height={120} width={120} />
-                            ) : (
-                                <Lottie options={defaultOptions2} height={120} width={120} />
-                            )}
-                        </div>
+                        <Body background='../../../assets/menina-load.png'/>
+                            <div>
+                                {!this.state.loading ? (
+                                    <>
+                                        <h1>Carregando...</h1>
+                                        <Lottie options={defaultOptions} height={120} width={120} />
+                                    </>
+                                ) : (
+                                    <Lottie options={defaultOptions2} height={120} width={120} />
+                                )}
+                            </div>
                     </Fadein>
                         ) : (
                         <Routes/>
