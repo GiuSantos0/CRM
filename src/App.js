@@ -4,12 +4,16 @@ import 'devextreme/dist/css/dx.material.gfai.css';
 import React from 'react';
 import './App.css';
 import Routes from './routes';
+import Loading from './components/Default/Loading';
 
 
 function App() {
   return (
     <div className="App">
-        <Routes/>
+        <header>
+          <Loading/>
+        </header>
+        {/* <Routes/> */}
     </div>
   );
 }
