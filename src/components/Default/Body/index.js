@@ -27,7 +27,6 @@ body {
  
  @media screen and (min-width:1300px){
     body{
-        background: #000 url('../../assets/img/wallpaper.png') no-repeat;
         background-position: 81% 22%;
         background-size: 100% !important;
      }
