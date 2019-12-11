@@ -1,9 +1,8 @@
 import 'devextreme/dist/css/dx.common.css';
 // import 'devextreme/dist/css/dx.material.orange.light.compact.css';
-import 'devextreme/dist/css/dx.material.gfai.css';
+import './util/dx.material.gfai.css';
 import React from 'react';
 import './App.css';
-import Routes from './routes';
 import Loading from './components/Default/Loading';
 
 
