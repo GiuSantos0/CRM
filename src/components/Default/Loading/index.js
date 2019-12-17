@@ -1,8 +1,7 @@
 import React from 'react';
 import Fadein from 'react-fade-in';
-import Lottie from 'react-lottie';
-import * as MoneyLoad from "../../../assets/loading2.json";
-import * as CheckLoading from "../../../assets/checkloading.json";
+import * as MoneyLoad from "../../../assets/loading/loading2.json";
+import * as CheckLoading from "../../../assets/loading/checkloading.json";
 import Routes from '../../../routes';
 import { StyledLottie } from './styles.js';
 import Body from '../Body';

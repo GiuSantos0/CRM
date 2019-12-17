@@ -1,11 +1,11 @@
 import React , { Component }  from 'react';
 import './styles.css';
 import { FormControl, Grid, Container} from '@material-ui/core';
-import CardLogin from '../../components/Default/CardLogin';
-import Body from '../../components/Default/Body';
-import { StyledTextField } from '../../components/Default/TextField';
-import { login } from "../../services/auth";
-import api from "../../services/api";
+import CardLogin from '../../../components/Default/CardLogin';
+import Body from '../../../components/Default/Body';
+import { StyledTextField } from '../../../components/Default/TextField';
+import { login } from "../../../services/auth";
+import api from "../../../services/api";
 
 
 class Login extends Component {
@@ -33,17 +33,6 @@ class Login extends Component {
       }
     }
   };
-
-  // const [email, setEmail] = useState('');
-  // const [senha, setSenha] = useState('');
-
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-
-  //   console.log(email, senha);
-
-  //   history.push('/DashPlanner');
-  // }
 
   render() {
     return (

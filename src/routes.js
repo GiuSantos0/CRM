@@ -1,14 +1,13 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { isAuthenticated } from './services/auth';
-import Login from './pages/Login';
+import Login from './pages/Default/Login';
 
 // Planejadores
 import DashboardFinanceiroPlanner from './pages/Planejadores/DashboardFinanceiro';
 import DashboardPlanejamentoPlanner from './pages/Planejadores/DashboardPlanejamento';
 import Crm from './pages/Planejadores/Crm';
 import Tasks from './pages/Planejadores/Tasks';
-import LoadImage from '../src/assets/menina-load.png';
 
 
 // Vê se esta autenticado
@@ -31,7 +30,6 @@ export default function Routes() {
                 <PrivateRoute path="/DashPlanner" component={DashboardPlanejamentoPlanner}/>
                 <PrivateRoute path="/Clientes" component={Crm}/>
                 <PrivateRoute path="/Tasks" component={Tasks}/>
-                <Route path="/LoadingImage" component={LoadImage}/>
                 <Route path="*" component={() => <h1>Page not found</h1>} />
             </Switch>
         </BrowserRouter>
