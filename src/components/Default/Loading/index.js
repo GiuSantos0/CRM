@@ -3,7 +3,7 @@ import Fadein from 'react-fade-in';
 import * as MoneyLoad from "../../../assets/loading/loading2.json";
 import * as CheckLoading from "../../../assets/loading/checkloading.json";
 import Routes from '../../../routes';
-import { StyledLottie } from './styles.js';
+import { StyledLottie, LoadingSpan } from './styles.js';
 import Body from '../Body';
 
 const defaultOptions = {
@@ -53,11 +53,14 @@ export default class Loading extends React.Component {
                             <div>
                                 {!this.state.loading ? (
                                     <>
-                                        <span>Carregando...</span>
-                                        <StyledLottie options={defaultOptions} height={250} width={250} />
+                                        <LoadingSpan>Carregando...</LoadingSpan>
+                                        <StyledLottie options={defaultOptions} height={150} width={150} />
                                     </>
                                 ) : (
-                                    <StyledLottie options={defaultOptions2} height={300} width={300} />
+                                    <>
+                                        <LoadingSpan/>
+                                        <StyledLottie options={defaultOptions2} height={150} width={150} />
+                                    </>
                                 )}
                             </div>
                     </Fadein>
