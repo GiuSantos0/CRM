@@ -65,17 +65,17 @@ export default function Crm(){
 
     const conteudo = (
         <>
-            <Grid container>
-                <Grid item sm={12}></Grid>
+            < Grid container >
+                < Grid item sm={12}></Grid>
                     //conteudo da pagina
-                </Card>
+                < /Card>
             </Grid>    
         </>
     );
     return( 
-        <div>
-                <Body background=''/>
-                        <Sidenav Component={conteudo}/>
+        < div>
+                < Body background=''/>
+                        < Sidenav Component={conteudo}/>
         </div>
         );
 };
