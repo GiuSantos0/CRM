@@ -54,5 +54,5 @@ Nesse caso está conectado com uma VM do Google Cloud rodando o backend com PM2 
 <p> Você consegue alterar o background da pagina alterando a <i>props</i> "background" da seguinte forma: </p>
 
 <pre> 
-    <Body background="https://dashplan.com.br/img/wallpaper/walppaper3.png"/>
+    < Body background="https://dashplan.com.br/img/wallpaper/walppaper3.png"/>
 </pre>
