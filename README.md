@@ -53,6 +53,31 @@ Nesse caso está conectado com uma VM do Google Cloud rodando o backend com PM2 
 
 <p> Você consegue alterar o background da pagina alterando a <i>props</i> "background" da seguinte forma: </p>
 
-<pre> 
-    < Body background="https://dashplan.com.br/img/wallpaper/walppaper3.png"/>
+<pre> < Body background="https://dashplan.com.br/img/wallpaper/walppaper3.png"/></pre>
+
+
+<h4> * Padrão de criação de paginas </h4>
+
+<pre>
+
+export default function Crm(){
+    const classes = useStyles();
+
+    const conteudo = (
+        <>
+            <Grid container>
+                <Grid item sm={12}></Grid>
+                    //conteudo da pagina
+                </Card>
+            </Grid>    
+        </>
+    );
+    return( 
+        <div>
+                <Body background=''/>
+                        <Sidenav Component={conteudo}/>
+        </div>
+        );
+};
+
 </pre>
