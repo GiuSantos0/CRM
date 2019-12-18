@@ -44,3 +44,15 @@ Nesse caso está conectado com uma VM do Google Cloud rodando o backend com PM2 
 
 <h4> * Planejadores</h4>
 <p> A pasta Planejadores serve para components e páginas que somente o user Planejador pode ver </p>
+
+<h3> * CSS = Styled Components </h3>
+
+<p> Temos alguns components que possuem algumas configurações diferentes como: </p>
+
+<h4> < Body /> </h4>
+
+<p> Você consegue alterar o background da pagina alterando a <i>props</i> "background" da seguinte forma: </p>
+
+<pre> 
+        <Body background="https://dashplan.com.br/img/wallpaper/walppaper3.png"/>
+</pre>
