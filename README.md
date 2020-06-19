@@ -1,4 +1,4 @@
-<h1>FRONT END DASHPLAN 👩‍💻</h1> 
+<h1> 👩‍💻</h1> 
 
 <p>Foi arquitetado com base para vários users como: planejador, cliente, financeiro... e por ai vai; 
 Os principais frameworks utilizados são o React Js, Material Ui, Dev Express e Styled Components.</p>
